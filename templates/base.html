@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%  block title  %} {% endblock %}</title>
+    <h1>Smart Career</h1>
+</head>
+<body>
+
+   <h2>
+       <a href = "{% url 'home' %}">  | Home |  </a>
+       <a href = "{% url 'about' %}"> About | </a>
+       <a href = "{% url 'faq' %}"> F.A.Q. | </a>
+       <a href = "{% url 'contact' %}"> Contact us | </a>
+
+
+   </h2>
+    {% block content %}{% endblock %}
+
+    {% block footer %}
+    <hr>
+    <p>Thanks for visiting or whatever.</p>
+    {% endblock %}
+</body>
+</html>
