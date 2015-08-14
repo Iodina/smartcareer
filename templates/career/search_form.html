@@ -1,0 +1,11 @@
+{% extends 'career/home.html' %}
+
+{% block title %}Search {% endblock %}
+
+
+{% block search %}
+    <form action="/search/" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Search">
+    </form>
+{% endblock %}

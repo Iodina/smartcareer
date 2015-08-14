@@ -22,5 +22,7 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^faq/$', views.faq, name='faq'),
     url(r'^contact/$', views.contact, name='contact'),
+    url(r'^search-form/$', views.search_form),
+
 ]
 

@@ -21,10 +21,14 @@ In fact - very simple. Once you provided us with a link to your profile, we anal
 						      <span class="about_txt fontFamilyGothamProReg">  Based on that data, we generate a list of occupations in which you can find yourself.
  <br> Also we will offer you online courses which can help you to improve your skills ;)
 
+
 					         </span>
                             {% if error %}
                                 <p>{{ error }}</p>
                                 {% endif %}
+           {% block search %} {% endblock %}
+
+
 				        </div>
 
 				            <div class="entry_cook_btn_wrapper">

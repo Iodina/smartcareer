@@ -60,5 +60,9 @@ def faq(request):
 def contact(request):
     return render_to_response('career/contact.html', context_instance=RequestContext(request))
 
+def search_form(request):
+    return render(request, 'career/search_form.html')
+
+
 
 
