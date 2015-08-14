@@ -29,10 +29,19 @@ def home(request):
             cd = form.cleaned_data
             link_name = str(cd['link'])
             crawler = Crawler()
-            list = sort_skills(get_profession(crawler.get_skills(link_name)))[:3]
-            t = get_template('career/result.html')
-            result = t.render(Context({'user':request.user, 'list':list}))
-            return HttpResponse(result)
+            error = ''
+            try:
+                list = sort_skills(get_profession(crawler.get_skills(link_name)))[:3]
+            except:
+                error = "Please use valid url"
+            if not error:
+                t = get_template('career/result.html')
+                result = t.render(Context({'user':request.user, 'list':list}))
+                return HttpResponse(result)
+            else:
+                form = LinkForm()
+                return render(request, 'career/home.html', {'form': form, 'error': error})
+
     else:
         form = LinkForm()
     return render(request, 'career/home.html', {'form': form})

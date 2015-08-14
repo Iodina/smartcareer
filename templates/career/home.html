@@ -10,14 +10,21 @@
                 <div class="displayTableRow">
                     <div id="textContentWrapper">
 				        <div class="about_how_it_works_wrapper">
-					        <h2 class="fontFamilyGothamProBlack about_header">КАК ЭТО РАБОТАЕТ?</h2>
+					        <h2 class="fontFamilyGothamProBlack about_header">HOW IT WORKS?</h2>
 					        <div class="about_underline"></div>
 					        <span class="about_txt fontFamilyGothamProReg">
-						        На самом деле - очень просто. Ты добавляешь ссылку на свою страницу, мы ее анализируем и определяем ключевые слова. </span><br>
+
+In fact - very simple. Once you provided us with a link to your profile, we analyze it and determine keywords.
+</span><br>
 						        <!-- кнопка логина через соц.сети-->
 
-						      <span class="about_txt fontFamilyGothamProReg">  Основываясь на этих данных, мы формируем список профессий в которых ты можешь найти себя. <br> Ну и заодно будем предлагать онлайн курсы, с помощью которых ты сможешь улучшить свои навыки ;)
-					        </span>
+						      <span class="about_txt fontFamilyGothamProReg">  Based on that data, we generate a list of occupations in which you can find yourself.
+ <br> Also we will offer you online courses which can help you to improve your skills ;)
+
+					         </span>
+                            {% if error %}
+                                <p>{{ error }}</p>
+                                {% endif %}
 				        </div>
 
 				            <div class="entry_cook_btn_wrapper">
@@ -27,6 +34,7 @@
 {{ form }}
 <input id="email" type="submit" value="Make a prediction" class="button go entry_cook_btn"/>
 </form>
+
 </div>
 				        </div>
                     </div>
