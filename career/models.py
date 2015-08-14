@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Profession(models.Model):
-    sphere = models.ForeignKey('Sphere')
+    sphere = models.ManyToManyField('Sphere')
     skill = models.ManyToManyField('Skill')
     name = models.CharField(max_length=100, unique=True)
 
@@ -26,7 +26,6 @@ class Sphere(models.Model):
 class Course(models.Model):
     sphere = models.ForeignKey('Sphere')
     name = models.CharField(max_length=100)
-    link = models.URLField(max_length=200)
 
     def __unicode__(self):
         return self.name

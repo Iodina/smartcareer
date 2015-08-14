@@ -8,12 +8,11 @@ from career.models import *
 
 class ProfessionAdmin(admin.ModelAdmin):
     formfield_overrides = { models.ManyToManyField: {'widget': SelectMultiple(attrs={'size':'10'})}, }
-    list_display = ('name', 'sphere')
 
 
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('name','sphere', 'link')
+    list_display = ('name','sphere')
 
 admin.site.register(Sphere)
 admin.site.register(Skill)

@@ -1,15 +1,46 @@
 {% extends "base.html" %}
 {% block title %}
-    About
+    Home
 {% endblock %}
 
 {% block content %}
-   <p>Content </p>
+    <div id="content">
+	        <div class="gifts_bcgr"></div>
+            <div class="displayTable" style="width: 100%;height: 100%;">
+                <div class="displayTableRow">
+                    <div id="textContentWrapper">
+				        <div class="about_how_it_works_wrapper">
+					        <h2 class="fontFamilyGothamProBlack about_header">КАК ЭТО РАБОТАЕТ?</h2>
+					        <div class="about_underline"></div>
+					        <span class="about_txt fontFamilyGothamProReg">
+						        На самом деле - очень просто. Ты добавляешь ссылку на свою страницу, мы ее анализируем и определяем ключевые слова. </span><br>
+						        <!-- кнопка логина через соц.сети-->
 
+						      <span class="about_txt fontFamilyGothamProReg">  Основываясь на этих данных, мы формируем список профессий в которых ты можешь найти себя. <br> Ну и заодно будем предлагать онлайн курсы, с помощью которых ты сможешь улучшить свои навыки ;)
+					        </span>
+				        </div>
+
+				            <div class="entry_cook_btn_wrapper">
+
+<form action=" " enctype="multipart/form-data" method="post">
+{% csrf_token %}
+{{ form }}
+<input id="email" type="submit" value="Make a prediction" class="button go entry_cook_btn"/>
+</form>
+</div>
+				        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+{% comment %}
     <form action=" " method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit" />
 </form>
+{% endcomment %}
 
 {% endblock %}

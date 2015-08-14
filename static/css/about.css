@@ -1,0 +1,15 @@
+body {
+    min-height: 735px !important;
+}
+
+#textContentWrapper {
+  width: 810px;
+  background-color: transparent;
+  border: none;
+}
+
+.entry_cook_btn_wrapper {
+    top: 600px;
+    position: absolute;
+    left: 50%;
+}

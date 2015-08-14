@@ -1,11 +1,67 @@
 {% extends "base.html" %}
 {% block title %}
-    home
+    Result
 {% endblock %}
 
-{% block content %}
-        <h2>here is a result </h2>
+{%block content %}
+    <div id="content" class="result_view_content">
+        <div id="resultView" style="display: block;">
+
+            <div id="sliderBlock">
+                <div class="center_gift_bcgr"></div>
+                <div id="giftBlock_c" class="gift_block noselect" style="z-index: 1;">
+                    <div class="displayTable">
+                        <div class="displayTableRow">
+                            <div class="gift_wrapper">
+                                <div class="gift_bcgr">
+
+                                    <div class="gift_img_wrapper">
+
+                                    </div>
+                                    <div class="gift_name_wrapper displayTable">
+                                        <div class="displayTableCell">
+                                            <h1 id="giftName" class="gift_name displayInlineBlock fontFamilyGothamProBold enable_text_select">Вам подходят следующие профессии</h1>
+                                        </div>
+                                    </div>
+                                    <div class="middle_separator_wrapper">
+                                        <div class="result_blocks_separator"></div>
+                                    </div>
+
+
+<!--Блок результата-->
+                                    <div class="gift_desc_wrapper displayTable">
+                                        <div class="displayTableCell">
+                                             {% for prof in list %}
+
+    <p style="cursor:hand" onClick="expandit(this)">{{ prof }}</p>
+    <span style="display:none"  id="giftDesc" class="gift_desc displayInlineBlock fontFamilyGothamProReg">
+    Тут может быть описание и курсы.
+    </span>
+                                                {% endfor %}
+
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="left_gift_bcgr"></div>
+                <div class="right_gift_bcgr"></div>
+				<div id="backToSearchBtn" class="fontFamilyGothamProBold">
+					<img src="/static/img/arrow1_l.png">
+					<span><a href="{% url 'home' %}" data-hover="Попробовать еще раз">Попробовать еще раз</a></span>
+				</div>
+            </div>
+   </div>
+    </div>
+
+    {% comment %}
    <p> {{ list }}</p>
+
+
+{% endcomment %}
+
 
 
 {% endblock %}

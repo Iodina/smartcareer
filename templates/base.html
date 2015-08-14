@@ -1,3 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+{% load staticfiles %}
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <title>{% block title %} {% endblock %}</title>
+        <link rel="stylesheet" href="/static/css/index.css">
+        <link rel="stylesheet" href="/static/css/headerLinks.css">
+        <link rel="stylesheet" href="/static/css/about.css">
+        <link href="/static/img/fv_icon.ico" rel="shortcut icon" type="image/x-icon">
+    </head>
+    <body>
+     <script language="JavaScript1.2">
+var ns6=document.getElementById&&!document.all?1:0
+var head="display:''"
+var folder=''
+function expandit(curobj){
+folder=ns6?curobj.nextSibling.nextSibling.style:document.all[curobj.sourceIndex+1].style
+if (folder.display=="none")
+folder.display=""
+else
+folder.display="none"
+}
+</script>
+
+        <header class="mainhead">
+		    <div class="wrap cf">
+
+<div class="logo">
+	<a href="{% url 'home' %}"> Smart Career
+		<!-- <img src="./img/logo.png"> -->
+	</a>
+</div>
+
+<nav class="mainnav">
+	<li class="nav-item"><a href="{% url 'about' %}" data-hover="About">About</a></li>
+	<li class="nav-item"><a href="{% url 'faq' %}" data-hover="F.A.Q.">F.A.Q.</a></li>
+	<li class="nav-item"><a href="{% url 'contact' %}" data-hover="Contacts">Contacts</a></li>
+</nav>
+		    </div>
+	    </header>
+
+	 <!--все что выше это повторяющаяся на всех страницах часть хедер-->
+{% block content %}
+
+{% endblock %}
+ <!--        <div id="footer" class="noselect">
+            <div class="footer_inner_block">
+
+                <span class="copyright_txt fontFamilySansRegular">© 2015</span>
+            </div>
+        </div> -->
+
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,3 +102,4 @@
     {% endblock %}
 </body>
 </html>
+{% endcomment %}

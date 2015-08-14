@@ -27,26 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# LINKEDIN_CONSUMER_KEY = 'xxxx' # The LinkedIn application "API Key"
-# LINKEDIN_CONSUMER_SECRET = 'xxxx' # The LinkedIn application "Secret Key"
-# LINKEDIN_SCOPE = ['r_basicprofile', 'r_emailaddress',]
-# LINKEDIN_EXTRA_FIELD_SELECTORS = [
-#     'first-name',
-#     'last-name',
-#     'email-address',
-#     'headline', # The job title
-#     'positions', # Used to retrieve the company
-# ]
-
-# LINKEDIN_EXTRA_DATA = [
-#     ('id', 'id'),
-#     ('first-name', 'first_name'),
-#     ('last-name', 'last_name'),]
-#      + [(field, field.replace('-', '_'), True) for field in LINKEDIN_EXTRA_FIELD_SELECTORS]
-
-LOGIN_URL = '/login/'
-LOGIN_ERROR_URL = '/error/'
-LOGIN_REDIRECT_URL = '/complete/'
 
 # Application definition
 
@@ -58,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'career',
-    'social_auth',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.static',
             ],
         },
     },
@@ -128,3 +108,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join('~/aacimp/project/smartcareer', 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
