@@ -4,35 +4,6 @@ import mechanize
 
 from career.models import Profession, Skill, Sphere, Course
 
-#
-# for item in list:
-#
-## prof = Profession.objects.filter(name__icontains = 'Data Analyst')   list = object needed
-## list_sphere = prof[0].sphere.all()   -- list of spheres
-## str(list_sphere[0].name)  -- name of a particular sphere
-
-
-#### str(Course.objects.filter(sphere = Sphere.objects.all()[0])[0].name)     -- name_link
-##
-
-# list1 = ['Software Engineer', 'Software Developer', 'Web Developer']
-
-
-# prof_obj = [Profession.objects.filter(name__icontains=item) for item in list1]
-
-# list_sphere = [it[0].sphere.all() for it in prof_obj]
-#
-
-# spheres = []
-# for l in list_sphere:
-#     spheres += [li for li in l]
-# list(set(spheres))    --- list of spheres
-# 1)spheres_name = [str(s.name) for s in list(set(spheres))]
-# 2)spheres_descr = [s.discription for s in list(set(spheres))]    a problem here
-
-# links = [str(Course.objects.filter(sphere = sph)[0].name) for sph in spheres1]
-
-
 
 professions = {}
 for item in Profession.objects.all():
@@ -63,8 +34,12 @@ class Crawler:
 
     def get_skills(self, url):
         content = self._br.open(url).read()
-        return map(lambda x: x.text.encode('utf-8'),
-                BeautifulSoup(content, 'html.parser').find_all('a', 'endorse-item-name-text'))
+        result = map(lambda x: x.text.encode('utf-8'),
+            BeautifulSoup(content, 'html.parser').find_all('a', 'endorse-item-name-text'))
+        if result == []:
+            raise ValueError("No skills found")
+            # exit(0)
+        return result
 
 def get_profession(skills):
     def match(prof_skills):
