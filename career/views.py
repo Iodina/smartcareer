@@ -31,12 +31,35 @@ def home(request):
             crawler = Crawler()
             error = ''
             try:
-                list = sort_skills(get_profession(crawler.get_skills(link_name)))[:3]
+                list1 = sort_skills(get_profession(crawler.get_skills(link_name)))[:3]
+                prof_obj = [Profession.objects.filter(name__icontains=item) for item in list1]
+                list_sphere = [it[0].sphere.all() for it in prof_obj]
+                spheres = []
+                for l in list_sphere:
+                    spheres += [li for li in l]
+
+                list(set(spheres))    #list of spheres
+                spheres_name = [str(s.name) for s in list(set(spheres))]
+                spheres_descr = [s.discription for s in list(set(spheres))] #a problem here
+
+                links = [str(Course.objects.filter(sphere = sph)[0].name) for sph in list(set(spheres))]
+                link = "https://www.coursera.org/courses?categories="
+                for b in links:
+                    link += b +','
+                link = link[:-1]
+                dict = {}
+                for a in range(len(spheres_name)):
+                    dict[spheres_name[a]] = spheres_descr[a]
+
+
             except:
-                error = "Please use valid url"
+                if "linkedin" not in link_name:
+                    error = "Please enter link from LinkedIn"
+                else:
+                    error = "Please fill your profile with more information"
             if not error:
                 t = get_template('career/result.html')
-                result = t.render(Context({'user':request.user, 'list':list}))
+                result = t.render(Context({'user':request.user, 'dict': dict, 'link':link}))
                 return HttpResponse(result)
             else:
                 form = LinkForm()
@@ -46,6 +69,17 @@ def home(request):
         form = LinkForm()
     return render(request, 'career/home.html', {'form': form})
 
+
+#
+# for item in list:
+#
+## prof = Profession.objects.filter(name__icontains = 'Data Analyst')   list = object needed
+## list_sphere = prof[0].sphere.all()   -- list of spheres
+## str(list_sphere[0].name)  -- name of a particular sphere
+
+
+#### str(Course.objects.filter(sphere = Sphere.objects.all()[0])[0].name)     -- name_link
+##
 
 def about(request):
     t = loader.get_template('career/about.html')

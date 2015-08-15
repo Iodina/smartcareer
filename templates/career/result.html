@@ -31,11 +31,12 @@
 <!--Блок результата-->
                                     <div class="gift_desc_wrapper displayTable">
                                         <div class="displayTableCell">
-                                             {% for prof in list %}
+                                        <a href="{{ link }}" target="_blank"> Coursera courses</a>
+                                             {% for key, value in dict.iteritems %}
 
-    <p style="cursor:hand" onClick="expandit(this)">{{ prof }}</p>
+    <p style="cursor:hand" onClick="expandit(this)">{{ key }}</p>
     <span style="display:none"  id="giftDesc" class="gift_desc displayInlineBlock fontFamilyGothamProReg">
-    Тут может быть описание и курсы.
+    {{ value }}
     </span>
                                                 {% endfor %}
 

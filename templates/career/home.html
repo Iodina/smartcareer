@@ -35,7 +35,9 @@ In fact - very simple. Once you provided us with a link to your profile, we anal
 
 <form action=" " enctype="multipart/form-data" method="post">
 {% csrf_token %}
+    <p class = 'class1'>
 {{ form }}
+        </p>
 <input id="email" type="submit" value="Make a prediction" class="button go entry_cook_btn"/>
 </form>
 

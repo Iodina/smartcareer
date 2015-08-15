@@ -9,6 +9,14 @@
     border-right: 5px solid #3aba87;
 }
 
+.class1{
+    position: absolute;
+    bottom: 140px;
+    left: 40px;
+}
+
+
+
 #footer{
     display: block;
 }
