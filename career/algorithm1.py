@@ -1,8 +1,14 @@
 from bs4 import BeautifulSoup
 import urllib
 import mechanize
+import sys
+import requests
+import linkedinlogin
+import cookielib
 
 from career.models import Profession, Skill, Sphere, Course
+username = "mariamforminin@gmail.com"
+password = "mariam000"
 
 
 professions = {}
@@ -40,6 +46,21 @@ class Crawler:
             raise ValueError("No skills found")
             # exit(0)
         return result
+
+    def get_local_link(self, url):
+        parser = linkedinlogin.LinkedInParser(username, password)
+        cj = cookielib.MozillaCookieJar(linkedinlogin.cookie_filename)
+        cj.load()
+        self._br.set_cookiejar(cj)
+        content = self._br.open(url).read()
+        result = map(lambda x: x.text.encode('utf-8'),
+        BeautifulSoup(content, 'html.parser').find_all('a', 'view-public-profile'))
+        if result == []:
+            raise ValueError("No skills found")
+            # print 'No public link found'
+            # exit(0)
+        return result[0]
+
 
 def get_profession(skills):
     def match(prof_skills):

@@ -29,9 +29,17 @@ def home(request):
             cd = form.cleaned_data
             link_name = str(cd['link'])
             crawler = Crawler()
+
             error = ''
             try:
+                if "linkedin" in link_name:
+                    if 'profile/view' in link_name:
+                        link_name = crawler.get_local_link(link_name)
+                # profs = get_profession(crawler.get_skills(link_name))
+                # list1 = sort_skills(profs)[:3]
                 list1 = sort_skills(get_profession(crawler.get_skills(link_name)))[:3]
+
+
                 prof_obj = [Profession.objects.filter(name__icontains=item) for item in list1]
                 list_sphere = [it[0].sphere.all() for it in prof_obj]
                 spheres = []

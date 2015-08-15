@@ -9,6 +9,14 @@
     border-right: 5px solid #3aba87;
 }
 
+.class1{
+    position: absolute;
+    bottom: 140px;
+    left: 40px;
+}
+
+
+
 #footer{
     display: block;
 }
@@ -143,8 +151,8 @@ a{
 }
 
 .go{
-	/*bottom: 63px;*/
-	/*position: absolute; */
+	bottom: 63px;
+	position: absolute;
 	left: 50%;
 	margin: 0 0 0 -177px;
 }
