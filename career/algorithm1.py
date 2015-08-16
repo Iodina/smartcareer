@@ -47,19 +47,20 @@ class Crawler:
             # exit(0)
         return result
 
-    def get_local_link(self, url):
-        parser = linkedinlogin.LinkedInParser(username, password)
+    # def get_local_link(self, url):
+    #     parser = linkedinlogin.LinkedInParser(username, password)
+    def login(self):
         cj = cookielib.MozillaCookieJar(linkedinlogin.cookie_filename)
         cj.load()
         self._br.set_cookiejar(cj)
-        content = self._br.open(url).read()
-        result = map(lambda x: x.text.encode('utf-8'),
-        BeautifulSoup(content, 'html.parser').find_all('a', 'view-public-profile'))
-        if result == []:
-            raise ValueError("No skills found")
-            # print 'No public link found'
-            # exit(0)
-        return result[0]
+        # content = self._br.open(url).read()
+        # result = map(lambda x: x.text.encode('utf-8'),
+        # BeautifulSoup(content, 'html.parser').find_all('a', 'view-public-profile'))
+        # if result == []:
+        #     raise ValueError("No skills found")
+        #     # print 'No public link found'
+        #     # exit(0)
+        # return result[0]
 
 
 def get_profession(skills):

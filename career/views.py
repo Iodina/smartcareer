@@ -34,7 +34,8 @@ def home(request):
             try:
                 if "linkedin" in link_name:
                     if 'profile/view' in link_name:
-                        link_name = crawler.get_local_link(link_name)
+                        # link_name = crawler.get_local_link(link_name)
+                        crawler.login()
                 # profs = get_profession(crawler.get_skills(link_name))
                 # list1 = sort_skills(profs)[:3]
                 list1 = sort_skills(get_profession(crawler.get_skills(link_name)))[:3]
