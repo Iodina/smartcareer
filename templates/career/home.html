@@ -28,7 +28,9 @@
 
 
  {% if error %}
-                                <p class="text-danger">{{ error }}</p>
+     {% for er in error %}
+                                <p class="text-danger">{{ er }}</p>
+     {% endfor %}
                                 {% endif %}
            {% block search %} {% endblock %}
 <form action=" " enctype="multipart/form-data" method="post">
