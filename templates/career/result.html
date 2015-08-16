@@ -4,55 +4,49 @@
 {% endblock %}
 
 {%block content %}
-    <div id="content" class="result_view_content">
-        <div id="resultView" style="display: block;">
+    <div class="col-md-2">
+								<!-- Heading and para -->
+								<hr>
 
-            <div id="sliderBlock">
-                <div class="center_gift_bcgr"></div>
-                <div id="giftBlock_c" class="gift_block noselect" style="z-index: 1;">
-                    <div class="displayTable">
-                        <div class="displayTableRow">
-                            <div class="gift_wrapper">
-                                <div class="gift_bcgr">
+    </div>
+							<div class="col-md-8">
+								<div class="block-heading-two">
+									<h3><span>Our Solution</span></h3>
+								</div>
 
-                                    <div class="gift_img_wrapper">
-
-                                    </div>
-                                    <div class="gift_name_wrapper displayTable">
-                                        <div class="displayTableCell">
-                                            <h1 id="giftName" class="gift_name displayInlineBlock fontFamilyGothamProBold enable_text_select"> These spheres may be sutable for you </h1>
-                                        </div>
-                                    </div>
-                                    <div class="middle_separator_wrapper">
-                                        <div class="result_blocks_separator"></div>
-                                    </div>
-
-
-<!--Блок результата-->
-                                    <div class="gift_desc_wrapper displayTable">
-                                        <div class="displayTableCell">
                                         <a href="{{ link }}" target="_blank"> Coursera courses</a>
-                                             {% for key, value in dict.iteritems %}
 
-    <p style="cursor:hand" onClick="expandit(this)">{{ key }}</p>
-    <span style="display:none"  id="giftDesc" class="gift_desc displayInlineBlock fontFamilyGothamProReg">
-    {{ value }}
-    </span>
+                                <!-- Accordion starts -->
+                                <div class="panel-group" id="accordion-alt3">
+								 <!-- Panel. Use "panel-XXX" class for different colors. Replace "XXX" with color. -->
+
+                                {% for key, value in dict.iteritems %}
+
+
+                                    <h3 style="cursor:hand" onClick="expandit(this)"><a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseThree-alt3">
+											<i class="fa fa-angle-right"></i>
+										  {{ key }}</a></h3>
+                                         <p style="display:none" >
+                                                 {{ value }}
+    	                                </p>
                                                 {% endfor %}
 
-                                            </div>
-                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="left_gift_bcgr"></div>
-                <div class="right_gift_bcgr"></div>
-				<div id="backToSearchBtn" class="fontFamilyGothamProBold">
-					<img src="/static/img/arrow1_l.png">
-					<span><a href="{% url 'home' %}" data-hover="Попробовать еще раз">Try again</a></span>
+								<!-- Accordion ends -->
+                            <div id="backToSearchBtn" class="fontFamilyGothamProBold">
+
+					<span><a href="{% url 'home' %}" data-hover="Попробовать еще раз"><img src="/static/img/arrow1_l.png">Try again</a></span>
 				</div>
+
+							</div>
+
+							<div class="col-md-2">
+								<hr>
+
+
+
+							</div>
+
             </div>
    </div>
     </div>

@@ -36,9 +36,8 @@ def home(request):
 
                 error = ''
                 try:
-                    if "linkedin" in link_name:
-                        if 'profile/view' in link_name:
-                            crawler.login()
+                    if 'profile/view' in link_name:
+                        crawler.login()
 
                     token_skills = [str(sk.name) for sk in cd1['Skills']]
                     list1 = sort_skills(get_profession(crawler.get_skills(link_name)+token_skills))[:3]
@@ -62,11 +61,13 @@ def home(request):
                         dict[spheres_name[a]] = spheres_descr[a]
 
 
+
+                except ValueError:
+                    error = "We have not enough information, please enter some skills"
+
                 except:
                     if not link_name and not token_skills:
                         error = "Please, enter some information"
-                    else:
-                        error = "We have not enough information, please enter some skills"
 
 
                 if not error:

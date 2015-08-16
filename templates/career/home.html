@@ -4,18 +4,7 @@
 {% endblock %}
 
 {% block content %}
-    <div id="content">
-	        <div class="gifts_bcgr"></div>
-            <div class="displayTable" style="width: 100%;height: 100%;">
-                <div class="displayTableRow">
-                    <div id="textContentWrapper">
-				        <div class="about_how_it_works_wrapper">
-					        <h2 class="fontFamilyGothamProBlack about_header">HOW IT WORKS?</h2>
-					        <div class="about_underline"></div>
-					        <span class="about_txt fontFamilyGothamProReg">
 
-In fact - very simple. Once you provided us with a link to your profile, we analyze it and determine keywords.
-</span><br>
                         {% comment %}
 <form action="" method="POST">
       {{ form1.as_p }}
@@ -24,40 +13,36 @@ In fact - very simple. Once you provided us with a link to your profile, we anal
                         {{ data }}
 						        <!-- кнопка логина через соц.сети-->
 
-						      <span class="about_txt fontFamilyGothamProReg">  Based on that data, we generate a list of occupations in which you can find yourself.
- <br> Also we will offer you online courses which can help you to improve your skills ;)
+						      <div class="col-md-6 col-md-offset-3">
+								<div class="about-logo">
+                                    <h1>HOW IT WORKS?</h1>
+                                    <br>
+
+									<p>In fact - very simple. You add a link to your profile, we analyze it and determine keywords.</p>
 
 
-					         </span>
-                            {% if error %}
-                                <p>{{ error }}</p>
+
+
+				        <p>Based on these data, we generate a list of occupations in which you can find yourself.<br> And at the same time will offer online courses by which you could improve your skills;)</p><br>
+								</div>
+
+
+ {% if error %}
+                                <p class="text-danger">{{ error }}</p>
                                 {% endif %}
            {% block search %} {% endblock %}
-
-
-				        </div>
-
-				            <div class="entry_cook_btn_wrapper">
-
 <form action=" " enctype="multipart/form-data" method="post">
 {% csrf_token %}
-    <p class = 'class1'>
+
 
 {{ form }}
 
  {{ form1 }}
-    </p>
-     <p class = 'class2'>
-<input id="email" type="submit" value="Make a prediction" class="button go entry_cook_btn"/>
-    </p>
-</form>
+<br>
+<input id="email" type="submit" value="Make a prediction" class="btn btn-color btn-lg btn-block"/>
 
-</div>
-				        </div>
-                    </div>
-
-                </div>
-            </div>
+                                </form>
+							</div>
         </div>
 
 {% comment %}

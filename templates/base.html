@@ -2,17 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 {% load staticfiles %}
         <meta name="description" content="">
         <meta name="keywords" content="">
         <title>{% block title %} {% endblock %}</title>
-        <link rel="stylesheet" href="/static/css/index.css">
-        <link rel="stylesheet" href="/static/css/headerLinks.css">
-        <link rel="stylesheet" href="/static/css/about.css">
-        <link href="/static/img/fv_icon.ico" rel="shortcut icon" type="image/x-icon">
 
-  <link rel="stylesheet" href="/static/css/token-input.css">
-  <script src="/static/js/jquery-1.6.4.js"></script>
+
+    <link rel="stylesheet" href="/static/css/token-input.css">
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="/static/css/flexslider.css" rel="stylesheet" />
+    <link href="/static/css/style.css" rel="stylesheet" />
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<script src="/static/js/jquery.js"></script>
   <script src="/static/js/jquery.tokeninput.js"></script>
  <script src="/static/js/jquery-tokeninput-1.6.0-min.js"></script>
  <script src="/static/js/djtokeninput.js"></script>
@@ -22,7 +30,8 @@
 
     </head>
     <body>
-     <script language="JavaScript1.2">
+<!-- cкрипт который делает эффект открывания профессии-->
+    <script language="JavaScript1.2">
 var ns6=document.getElementById&&!document.all?1:0
 var head="display:''"
 var folder=''
@@ -34,36 +43,67 @@ else
 folder.display="none"
 }
 </script>
+<div id="wrapper">
 
-        <header class="mainhead">
-		    <div class="wrap cf">
+	<!-- start header -->
+		<header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-<div class="logo">
-	<a href="{% url 'home' %}"> Smart Career
+	<a class="navbar-brand" href="{% url 'home' %}"> PLAN YOURSELF
 		<!-- <img src="./img/logo.png"> -->
 	</a>
 </div>
 
-<nav class="mainnav">
-	<li class="nav-item"><a href="{% url 'about' %}" data-hover="About">About</a></li>
-	<li class="nav-item"><a href="{% url 'faq' %}" data-hover="F.A.Q.">F.A.Q.</a></li>
-	<li class="nav-item"><a href="{% url 'contact' %}" data-hover="Contacts">Contacts</a></li>
-</nav>
-		    </div>
-	    </header>
+<div class="navbar-collapse collapse ">
+    <ul class="nav navbar-nav">
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'faq' %}">F.A.Q.</a></li>
+        <li><a href="{% url 'contact' %}">Contact us</a></li>
+    </ul>
+                </div>
+            </div>
+        </div>
+	</header><!-- end header -->
+<section id="content">
+	<div class="container">
+	<div class="row">
+
 
 	 <!--все что выше это повторяющаяся на всех страницах часть хедер-->
 {% block content %}
 
 {% endblock %}
- <!--        <div id="footer" class="noselect">
-            <div class="footer_inner_block">
 
-                <span class="copyright_txt fontFamilySansRegular">© 2015</span>
-            </div>
-        </div> -->
+</div>
+	</div>
+	</section>
 
-</body></html>
+</div>
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="/static/js/jquery.easing.1.3.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.fancybox.pack.js"></script>
+<script src="/static/js/jquery.fancybox-media.js"></script>
+<script src="/static/js/jquery.flexslider.js"></script>
+<script src="/static/js/animate.js"></script>
+<script src="/static/js/custom.js"></script>
+
+<script src="/static/js/quicksand/jquery.quicksand.js"></script>
+<script src="/static/js/flexslider/setting.js"></script>
+<script src="/static/js/jquery.flexslider.js"></script>
+
+</body>
+</html>
 
 
 
