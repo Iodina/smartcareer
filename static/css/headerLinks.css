@@ -10,9 +10,9 @@
 }
 
 .class1{
-    position: absolute;
+    position: relative;
     bottom: 140px;
-    left: 40px;
+    left: 0px;
 }
 
 

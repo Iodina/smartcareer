@@ -16,9 +16,12 @@
 
 In fact - very simple. Once you provided us with a link to your profile, we analyze it and determine keywords.
 </span><br>
+                        {% comment %}
 <form action="" method="POST">
       {{ form1.as_p }}
     </form>
+    {% endcomment %}
+                        {{ data }}
 						        <!-- кнопка логина через соц.сети-->
 
 						      <span class="about_txt fontFamilyGothamProReg">  Based on that data, we generate a list of occupations in which you can find yourself.
@@ -39,8 +42,11 @@ In fact - very simple. Once you provided us with a link to your profile, we anal
 <form action=" " enctype="multipart/form-data" method="post">
 {% csrf_token %}
     <p class = 'class1'>
+
 {{ form }}
-        </p>
+
+ {{ form1 }}
+    </p>
      <p class = 'class2'>
 <input id="email" type="submit" value="Make a prediction" class="button go entry_cook_btn"/>
     </p>
