@@ -17,7 +17,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-from .forms import LinkForm
+from .forms import LinkForm, TokenForm
 from algorithm1 import *
 
 
@@ -65,14 +65,14 @@ def home(request):
                 if "linkedin" not in link_name:
                     error = "Please enter link from LinkedIn"
                 else:
-                    error = "Please fill your profile with more information"
+                    error = "Please fill your profile with more information or enter your skills in the field below"
             if not error:
                 t = get_template('career/result.html')
                 result = t.render(Context({'user':request.user, 'dict': dict, 'link':link}))
                 return HttpResponse(result)
             else:
                 form = LinkForm()
-                return render(request, 'career/home.html', {'form': form, 'error': error})
+                return render(request, 'career/home.html', {'form': form, 'error': error, 'form1': TokenForm})
 
     else:
         form = LinkForm()

@@ -15,6 +15,9 @@ class Skill(models.Model):
 
     def __unicode__(self):
         return self.name
+    @classmethod
+    def search(cls, query):
+        return cls.objects.filter(name__icontains=query)
 
 class Sphere(models.Model):
     name = models.CharField(max_length=100, unique=True)

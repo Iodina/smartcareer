@@ -10,6 +10,7 @@ body {
 
 .entry_cook_btn_wrapper {
     top: 600px;
-    position: absolute;
+    position: relative;
+    bottom: 180px
     left: 50%;
 }
