@@ -1,10 +1,10 @@
 from .base import *
 
-try:
-    from .local import *
-    live = False
-except:
-    live = True
+# try:
+#     from .local import *
+#     live = False
+# except:
+#     live = True
 
-if live:
-     from .production import *
+# if live:
+from .production import *
