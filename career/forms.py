@@ -1,5 +1,5 @@
 from django import forms
-from djtokeninput import TokenField
+# from djtokeninput import TokenField
 from career.models import Skill
 
 class LinkForm(forms.Form):
