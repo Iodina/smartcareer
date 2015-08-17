@@ -2,7 +2,7 @@ Django==1.8.3
 argparse==1.2.1
 beautifulsoup4==4.4.0
 django-social-auth==0.7.28
-
+djtokeninput
 httplib2==0.9.1
 mechanize==0.2.5
 oauth2==1.5.211
@@ -13,5 +13,5 @@ wsgiref==0.1.2
 
 dj-database-url==0.3.0
 dj-static==0.0.6
-gunicorn==19.1.1
+gunicorn
 static==0.4
