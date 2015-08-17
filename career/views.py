@@ -17,7 +17,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-from .forms import LinkForm, TokenForm
+from .forms import LinkForm
 from algorithm1 import *
 
 
@@ -25,21 +25,21 @@ from algorithm1 import *
 def home(request):
     if request.method == 'POST':
         form = LinkForm(request.POST)
-        form1 = TokenForm(request.POST)
+        # form1 = TokenForm(request.POST)
 
         if form.is_valid():
-            if form1.is_valid():
+            # if form1.is_valid():
                 cd = form.cleaned_data
-                cd1 = form1.cleaned_data
+                # cd1 = form1.cleaned_data
 
                 link_name = str(cd['link'])
-                token_skills = [str(sk.name) for sk in cd1['Skills']]
+                # token_skills = [str(sk.name) for sk in cd1['Skills']]
                 crawler = Crawler()
                 error = []
                 if 'profile/view' in link_name:
                     crawler.login()
 
-
+                token_skills = []
                 if not link_name and not token_skills:
                     error.append('Please, enter some information')
                 elif not link_name and token_skills:
@@ -95,10 +95,12 @@ def home(request):
                     return HttpResponse(result)
                 else:
                     form = LinkForm()
-                    return render(request, 'career/home.html', {'form': form, 'error': error, 'form1': TokenForm})
+                    # return render(request, 'career/home.html', {'form': form, 'error': error, 'form1': TokenForm})
+                    return render(request, 'career/home.html', {'form': form, 'error': error})
     else:
         form = LinkForm()
-    return render(request, 'career/home.html', {'form': form, 'form1': TokenForm})
+    # return render(request, 'career/home.html', {'form': form, 'form1': TokenForm})
+        return render(request, 'career/home.html', {'form': form})
 
 
 #
