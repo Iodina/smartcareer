@@ -1,0 +1,1 @@
+web: qunicorn smartcareer.wsgi
