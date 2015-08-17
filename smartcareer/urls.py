@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^', include('career.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^auth/', include('social_auth.urls')),
-    # url(r"^djtokeninput/", include("djtokeninput.urls")),
+    url(r"^djtokeninput/", include("djtokeninput.urls")),
     # url(r"^complete/", "career.views.complete", name="complete"),
     # url(r"^logout/", "career.views.logout", name="logout"),
 

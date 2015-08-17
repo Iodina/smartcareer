@@ -1,0 +1,58 @@
+
+
+{% extends "base.html" %}
+{% block title %}
+    Get Skills
+{% endblock %}
+
+{% block content %}
+
+
+						        <!-- кнопка логина через соц.сети-->
+
+						      <div class="col-md-6 col-md-offset-3">
+								<div class="about-logo">
+                                    <h1>GET SKILLS</h1>
+                                    <br>
+                                    {% if not flag %}
+									<p>Enter a profession and get skills that are the most sutable.</p>
+                                    {% else %}
+                                    <p>There are some skills that are required.</p>
+                                    {% endif %}
+
+                                </div>
+<br>
+
+
+<form action=" " enctype="multipart/form-data" method="post">
+{% csrf_token %}
+
+
+{{ form }}
+{% if not flag %}
+<br>
+<br>
+<input id="email" type="submit" value="Get Skills" class="btn btn-color btn-lg btn-block"/>
+
+                                </form>
+                              {% else %}
+                                  {% for r in result %}
+    <li>{{ r }}</li>
+    {% endfor %}
+
+
+							</div>
+ <div id="backToSearchBtn" class="fontFamilyGothamProBold">
+					<span><a href="{% url 'profession' %}" data-hover="Попробовать еще раз"><img src="/static/img/arrow1_l.png">Try again</a></span>
+   {% endif %}
+
+				</div>
+
+        </div>
+
+
+{% endblock %}
+
+
+
+
