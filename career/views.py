@@ -40,7 +40,7 @@ def home(request):
                     crawler.login()
 
                 token_skills = []
-                list1 = sort_skills(get_profession(token_skills))[:3]
+                list1 = sort_skills(get_profession(crawler.get_skills(link_name)))[:3]
                 if not link_name and not token_skills:
                     error.append('Please, enter some information')
                 elif not link_name and token_skills:
