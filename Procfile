@@ -1,1 +1,1 @@
-web: qunicorn smartcareer.wsgi
+web: qunicorn smartcareer.wsgi:application
