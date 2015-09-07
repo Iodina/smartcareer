@@ -45,7 +45,7 @@ def home(request):
                 if not link_name and not token_skills:
                     error.append('Please, enter some information')
                 elif not link_name and token_skills:
-                    list1 = sort_skills(get_profession(token_skills))[:3]
+                    list1 = sort_skills(get_profession(list(set(token_skills))))[:3]
                     prof_obj = [Profession.objects.filter(name__icontains=item) for item in list1]
                     list_sphere = [it[0].sphere.all() for it in prof_obj]
                     spheres = []
@@ -74,7 +74,8 @@ def home(request):
                     # )
                     # return render(request, 'career/home.html', {'form': form, 'error': error, 'form1': form1})
                     try:
-                        list1 = sort_skills(get_profession(crawler.get_skills(link_name)+token_skills))[:3]
+                        skills_list = crawler.get_skills(link_name) + token_skills
+                        list1 = sort_skills(get_profession(list(set(skills_list))))[:3]
                         prof_obj = [Profession.objects.filter(name__icontains=item) for item in list1]
                         list_sphere = [it[0].sphere.all() for it in prof_obj]
                         spheres = []
